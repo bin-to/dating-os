@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>DatingOS – Your Dating CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-body">
+  <header class="app-header">
+    <button class="header-btn" id="btn-back" aria-label="Back" style="display: none;" onclick="window.datingOSBack(); return false;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <a href="../index.html" class="header-title">DatingOS</a>
+    <button class="header-btn" id="btn-upload" aria-label="Upload">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+    </button>
+  </header>
+
+  <main class="app-main">
+    <!-- View: Dashboard (Home) -->
+    <section class="view view-active" id="view-dashboard">
+      <div class="dashboard-header">
+        <h1 class="dashboard-headline">Your Active Conversations</h1>
+        <p class="dashboard-subtitle">3 need your reply · 2 reminders today</p>
+      </div>
+
+      <!-- Needs your reply - with text recommendation visible -->
+      <div class="home-section">
+        <h2 class="home-section-title">Needs your reply</h2>
+        <a href="#" class="reply-recommendation-card" data-navigate="conversation" data-id="sarah" onclick="window.datingOSOpenChat('sarah'); return false;">
+          <div class="reply-card-header">
+            <div class="reply-avatar">S</div>
+            <div class="reply-meta">
+              <strong>Sarah</strong>
+              <span>Tinder · 72% 🟢 · 2h ago</span>
+            </div>
+          </div>
+          <div class="reply-context">
+            <p class="reply-them">"That's awesome! What do you do?"</p>
+            <p class="reply-suggestion-label">Suggested reply</p>
+            <p class="reply-suggestion-text">I'm in tech—product design. You?</p>
+          </div>
+          <span class="reply-cta">View conversation →</span>
+        </a>
+      </div>
+
+      <!-- Today's reminders -->
+      <div class="home-section">
+        <h2 class="home-section-title">Today's reminders</h2>
+        <div class="reminders-strip">
+          <a href="#" class="reminder-chip follow" data-navigate="conversation" data-id="sarah" onclick="window.datingOSOpenChat('sarah'); return false;">Follow up · Sarah</a>
+          <a href="#" class="reminder-chip reduce" data-navigate="conversation" data-id="emma" onclick="window.datingOSOpenChat('emma'); return false;">Reduce investment · Emma</a>
+          <a href="#" class="reminder-chip reengage" data-navigate="conversation" data-id="lisa" onclick="window.datingOSOpenChat('lisa'); return false;">Re-engage · Lisa</a>
+        </div>
+      </div>
+
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <span class="stat-value">8</span>
+          <span class="stat-label">Active</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Hot</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">72%</span>
+          <span class="stat-label">Avg</span>
+        </div>
+      </div>
+
+      <div class="home-section">
+        <h2 class="home-section-title">All conversations</h2>
+        <div class="conv-list">
+<a href="#" class="conv-card" data-navigate="conversation" data-id="sarah" onclick="window.datingOSOpenChat('sarah'); return false;">
+          <div class="conv-avatar">S</div>
+          <div class="conv-body">
+            <div class="conv-header">
+              <span class="conv-name">Sarah</span>
+              <span class="conv-time">2h ago</span>
+            </div>
+            <p class="conv-preview">That's awesome! What do you do?</p>
+            <div class="conv-meta">
+              <span class="score-badge hot">72% 🟢</span>
+              <span class="reminder-badge">Follow up</span>
+              <span class="platform-tag">Tinder</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="conv-card" data-navigate="conversation" data-id="jess" onclick="window.datingOSOpenChat('jess'); return false;">
+            <div class="conv-avatar">J</div>
+            <div class="conv-body">
+              <div class="conv-header">
+                <span class="conv-name">Jess</span>
+                <span class="conv-time">3d ago</span>
+              </div>
+              <p class="conv-preview">Sure, coffee sounds good!</p>
+              <div class="conv-meta">
+                <span class="score-badge hot">85% 🟢</span>
+                <span class="platform-tag">Hinge</span>
+              </div>
+            </div>
+          </a>
+<a href="#" class="conv-card" data-navigate="conversation" data-id="emma" onclick="window.datingOSOpenChat('emma'); return false;">
+          <div class="conv-avatar">E</div>
+          <div class="conv-body">
+            <div class="conv-header">
+              <span class="conv-name">Emma</span>
+              <span class="conv-time">1d ago</span>
+            </div>
+            <p class="conv-preview">Haha that's so funny 😂</p>
+            <div class="conv-meta">
+              <span class="score-badge warm">58% 🟡</span>
+              <span class="reminder-badge">Reduce investment</span>
+              <span class="platform-tag">Instagram</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="conv-card more-link" data-view="conversations">
+            <div class="conv-avatar">+</div>
+            <div class="conv-body">
+              <span class="conv-name">View all chats</span>
+              <p class="conv-preview">Search, filter, manage roster</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- View: Chats (Conversations list) -->
+    <section class="view" id="view-conversations">
+      <div class="chats-header">
+        <h1 class="chats-headline">Chats</h1>
+        <p class="chats-subtitle">All your conversations in one place</p>
+      </div>
+      <div class="chats-search-wrap">
+        <input type="search" class="chats-search" placeholder="Search conversations..." aria-label="Search">
+      </div>
+      <div class="chats-filters">
+        <button class="chats-filter active">All</button>
+        <button class="chats-filter">Hot</button>
+        <button class="chats-filter">Warm</button>
+        <button class="chats-filter">Cold</button>
+        <button class="chats-filter">Re-engage</button>
+      </div>
+      <div class="conv-list chats-list">
+        <a href="#" class="conv-card" data-navigate="conversation" data-id="sarah" onclick="window.datingOSOpenChat('sarah'); return false;">
+          <div class="conv-avatar">S</div>
+          <div class="conv-body">
+            <div class="conv-header">
+              <span class="conv-name">Sarah</span>
+              <span class="conv-time">2h ago</span>
+            </div>
+            <p class="conv-preview">That's awesome! What do you do?</p>
+            <p class="conv-recommendation"><span class="rec-label">Suggested:</span> I'm in tech—product design. You?</p>
+            <div class="conv-meta">
+              <span class="score-badge hot">72% 🟢</span>
+              <span class="reminder-badge">Follow up</span>
+              <span class="platform-tag">Tinder</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="conv-card" data-navigate="conversation" data-id="jess" onclick="window.datingOSOpenChat('jess'); return false;">
+          <div class="conv-avatar">J</div>
+          <div class="conv-body">
+            <div class="conv-header">
+              <span class="conv-name">Jess</span>
+              <span class="conv-time">3d ago</span>
+            </div>
+            <p class="conv-preview">Sure, coffee sounds good!</p>
+            <p class="conv-recommendation"><span class="rec-label">Suggested:</span> Saturday works—how about 2pm at [place]?</p>
+            <div class="conv-meta">
+              <span class="score-badge hot">85% 🟢</span>
+              <span class="platform-tag">Hinge</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="conv-card" data-navigate="conversation" data-id="emma" onclick="window.datingOSOpenChat('emma'); return false;">
+          <div class="conv-avatar">E</div>
+          <div class="conv-body">
+            <div class="conv-header">
+              <span class="conv-name">Emma</span>
+              <span class="conv-time">1d ago</span>
+            </div>
+            <p class="conv-preview">Haha that's so funny 😂</p>
+            <p class="conv-recommendation"><span class="rec-label">Suggested:</span> Wait 24h—you've sent 3 of last 4 messages.</p>
+            <div class="conv-meta">
+              <span class="score-badge warm">58% 🟡</span>
+              <span class="reminder-badge">Reduce</span>
+              <span class="platform-tag">Instagram</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="conv-card" data-navigate="conversation" data-id="lisa" onclick="window.datingOSOpenChat('lisa'); return false;">
+          <div class="conv-avatar">L</div>
+          <div class="conv-body">
+            <div class="conv-header">
+              <span class="conv-name">Lisa</span>
+              <span class="conv-time">12d ago</span>
+            </div>
+            <p class="conv-preview">That's cool—you have an eye for it</p>
+            <p class="conv-recommendation"><span class="rec-label">Suggested:</span> Hey! Been a minute—saw that photo you posted. Still doing portraits?</p>
+            <div class="conv-meta">
+              <span class="score-badge warm">68% 🟡</span>
+              <span class="reminder-badge">Re-engage</span>
+              <span class="platform-tag">Hinge</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="conv-card" data-navigate="conversation" data-id="maya" onclick="window.datingOSOpenChat('maya'); return false;">
+          <div class="conv-avatar">M</div>
+          <div class="conv-body">
+            <div class="conv-header">
+              <span class="conv-name">Maya</span>
+              <span class="conv-time">3w ago</span>
+            </div>
+            <p class="conv-preview">Saved! 😊</p>
+            <p class="conv-recommendation"><span class="rec-label">Suggested:</span> Hey Maya! Been a while—that event was fun. How's it going?</p>
+            <div class="conv-meta">
+              <span class="score-badge cold">42% 🔴</span>
+              <span class="reminder-badge">Re-engage</span>
+              <span class="platform-tag">Instagram</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- View: Conversation Detail -->
+    <section class="view" id="view-conversation">
+      <div class="conv-detail-header">
+        <div class="conv-detail-person">
+          <div class="conv-detail-avatar">S</div>
+          <div class="conv-detail-info">
+            <h2>Sarah</h2>
+            <span class="conv-detail-meta">Tinder · Active 2h ago</span>
+          </div>
+        </div>
+      </div>
+      <div class="ai-panel">
+        <h3 class="panel-title">AI Analysis</h3>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="metric-value hot">72%</span>
+            <span class="metric-label">Attraction</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value" style="color: var(--text-primary);">Balanced</span>
+            <span class="metric-label">Investment</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value" style="color: var(--success);">Low</span>
+            <span class="metric-label">Ghost Risk</span>
+          </div>
+        </div>
+        <div class="investment-bar">
+          <div class="bar-container">
+            <div class="bar-fill" style="width: 50%"></div>
+          </div>
+          <div class="bar-label">
+            <span>You</span>
+            <span>Her</span>
+          </div>
+        </div>
+      </div>
+      <div class="person-insights-panel" id="person-insights-panel">
+        <h4 class="person-insights-title">AI insights · Tips for this conversation</h4>
+        <div class="person-insights-content" id="person-insights-content">
+          <div class="insight-block">
+            <span class="insight-label">Personality</span>
+            <p class="insight-text">Curious, engaged, career-minded. Asks follow-up questions—shows genuine interest.</p>
+          </div>
+          <div class="insight-block">
+            <span class="insight-label">Goals & values</span>
+            <p class="insight-text">Meeting interesting people, building real connections. Not just swiping for validation.</p>
+            <p class="insight-text insight-values">Authenticity, ambition, good conversation.</p>
+          </div>
+          <div class="insight-block insight-tips">
+            <span class="insight-label">Conversation tips</span>
+            <ul class="insight-tips-list">
+              <li>She asked what you do—reciprocate and ask about her work</li>
+              <li>Keep it light but show you have substance</li>
+              <li>She responds to genuine curiosity</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="chat-thread" id="chat-thread">
+        <div class="chat-message them"><span>Hey! How's your week going?</span></div>
+        <div class="chat-message you"><span>Pretty good, just wrapped a big project</span></div>
+        <div class="chat-message them"><span>That's awesome! What do you do?</span></div>
+      </div>
+      <div class="suggestions-panel">
+        <div class="suggestions-header">
+          <h4 class="suggestions-title">Suggested replies</h4>
+          <button type="button" class="change-style-btn" id="change-style-btn">Change style</button>
+        </div>
+        <div class="suggestion-list" id="suggestion-list">
+          <button type="button" class="suggestion-btn" data-tone="confident">
+            <span class="suggestion-tone">Confident</span>
+            <span class="suggestion-text">I'm in tech—product design. You?</span>
+            <span class="suggestion-action">Use in chat</span>
+          </button>
+          <button type="button" class="suggestion-btn" data-tone="playful">
+            <span class="suggestion-tone">Playful</span>
+            <span class="suggestion-text">Software stuff, pretty boring 😅 What about you?</span>
+            <span class="suggestion-action">Use in chat</span>
+          </button>
+        </div>
+      </div>
+      <div class="compose-panel">
+        <p class="compose-label">Add her reply</p>
+        <div class="compose-row">
+          <input type="text" class="compose-input" id="her-reply-input" placeholder="What did she say?" maxlength="500" />
+          <button type="button" class="compose-send compose-add" id="her-reply-add">Add</button>
+        </div>
+        <p class="compose-label">Your message</p>
+        <div class="compose-row">
+          <input type="text" class="compose-input" id="compose-input" placeholder="Type your message..." maxlength="500" />
+          <button type="button" class="compose-send" id="compose-send">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- View: Acquire (challenges + follow-backs) -->
+    <section class="view" id="view-acquire">
+      <div class="acquire-header">
+        <h1 class="acquire-title">Acquire new</h1>
+        <p class="acquire-subtitle">Weekly challenges & follow-backs to reach out to</p>
+      </div>
+
+      <div class="acquire-section">
+        <h2 class="acquire-section-title">Today’s challenge</h2>
+        <div class="challenge-card">
+          <div class="challenge-content">
+            <p class="challenge-question">Did you do your daily Tinder swipes?</p>
+            <p class="challenge-hint">A few minutes keeps your profile active and matches flowing.</p>
+          </div>
+          <button type="button" class="challenge-btn" data-done="false">Mark done</button>
+        </div>
+      </div>
+
+      <div class="acquire-section">
+        <h2 class="acquire-section-title">This week’s goal</h2>
+        <div class="challenge-card progress-card">
+          <p class="challenge-goal">Follow or reach out to 5 people on Instagram</p>
+          <p class="challenge-rule">If they follow you back, reach out within 48h.</p>
+          <div class="challenge-progress">
+            <div class="progress-bar"><div class="progress-fill" style="width: 40%"></div></div>
+            <span class="progress-label">2 of 5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="acquire-section">
+        <h2 class="acquire-section-title">Follow-backs to reach out to</h2>
+        <p class="acquire-section-desc">They followed you back—send them a message this week.</p>
+        <div class="followback-list">
+          <div class="followback-card">
+            <div class="followback-header">
+              <div class="followback-avatar">K</div>
+              <div class="followback-info">
+                <strong>Kate</strong>
+                <span>Followed you back 2 days ago · Instagram</span>
+              </div>
+            </div>
+            <p class="followback-suggestion-label">Suggested opener</p>
+            <button type="button" class="followback-opener">Hey Kate! Saw we have [hiking] in common—ever done the trail at [place]?</button>
+          </div>
+          <div class="followback-card">
+            <div class="followback-header">
+              <div class="followback-avatar">N</div>
+              <div class="followback-info">
+                <strong>Nina</strong>
+                <span>Followed you back 5 days ago · Instagram</span>
+              </div>
+            </div>
+            <p class="followback-suggestion-label">Suggested opener</p>
+            <button type="button" class="followback-opener">Your feed is 🔥—what’s your go-to spot for coffee in the city?</button>
+          </div>
+          <div class="followback-card">
+            <div class="followback-header">
+              <div class="followback-avatar">A</div>
+              <div class="followback-info">
+                <strong>Alex</strong>
+                <span>Followed you back 1 week ago · Instagram</span>
+              </div>
+            </div>
+            <p class="followback-suggestion-label">Suggested opener</p>
+            <button type="button" class="followback-opener">Random Q: best concert you’ve been to lately? (Asking for a friend with bad taste in music)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- View: Upload (prominent) -->
+    <section class="view" id="view-upload">
+      <div class="upload-hero">
+        <h2 class="upload-hero-title">Add new conversation</h2>
+        <p class="upload-hero-subtitle">Upload a screenshot and get instant AI analysis</p>
+        <div class="upload-zone upload-zone-hero" id="upload-zone">
+          <div class="upload-zone-inner">
+            <div class="upload-icon-hero">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+              </svg>
+            </div>
+            <h3>Drop screenshot here</h3>
+            <p>Tinder, WhatsApp, Instagram, Hinge—any chat</p>
+            <button type="button" class="btn-upload-primary">Upload screenshot</button>
+          </div>
+        </div>
+        <div class="upload-secondary">
+          <button type="button" class="btn-upload-secondary">Take photo of screen</button>
+        </div>
+        <ul class="upload-tips-list">
+          <li>Include both sides of the conversation</li>
+          <li>Make sure text is readable</li>
+          <li>Recent messages work best</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- View: Settings -->
+    <section class="view" id="view-settings">
+      <div class="settings-header">
+        <h1 class="settings-title">Settings</h1>
+      </div>
+      <div class="settings-profile">
+        <div class="settings-avatar">T</div>
+        <div class="settings-profile-info">
+          <strong>Demo User</strong>
+          <span>demo@datingos.app</span>
+        </div>
+      </div>
+      <div class="settings-group">
+        <h3 class="settings-group-title">Account</h3>
+        <a href="#" class="settings-row"><span>Edit profile</span><span class="settings-arrow">→</span></a>
+        <a href="#" class="settings-row"><span>Notification preferences</span><span class="settings-arrow">→</span></a>
+      </div>
+      <div class="settings-group">
+        <h3 class="settings-group-title">App</h3>
+        <a href="#" class="settings-row"><span>Reminder defaults</span><span class="settings-arrow">→</span></a>
+        <a href="#" class="settings-row"><span>Reply tone (Confident / Playful / Neutral)</span><span class="settings-arrow">→</span></a>
+        <a href="#" class="settings-row"><span>Privacy & data</span><span class="settings-arrow">→</span></a>
+      </div>
+      <div class="settings-group">
+        <h3 class="settings-group-title">Subscription</h3>
+        <div class="settings-row subscription-row">
+          <div>
+            <strong>DatingOS Pro</strong>
+            <span>€9.90/month · Renews monthly</span>
+          </div>
+          <span class="settings-badge pro">Active</span>
+        </div>
+        <a href="#" class="settings-row"><span>Manage subscription</span><span class="settings-arrow">→</span></a>
+      </div>
+      <div class="settings-group">
+        <a href="#" class="settings-row danger"><span>Log out</span></a>
+      </div>
+    </section>
+  </main>
+
+  <nav class="app-nav">
+    <a href="#" class="nav-item active" data-view="dashboard" onclick="window.datingOSNav('dashboard'); return false;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <rect x="3" y="3" width="7" height="7" rx="1"/>
+        <rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="14" y="14" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/>
+      </svg>
+      <span>Home</span>
+    </a>
+    <a href="#" class="nav-item" data-view="acquire" onclick="window.datingOSNav('acquire'); return false;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      <span>Acquire</span>
+    </a>
+    <a href="#" class="nav-item nav-item-upload" data-view="upload" onclick="window.datingOSNav('upload'); return false;">
+      <span class="nav-upload-icon">+</span>
+      <span>Upload</span>
+    </a>
+    <a href="#" class="nav-item" data-view="conversations" onclick="window.datingOSNav('conversations'); return false;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <span>Chats</span>
+    </a>
+    <a href="#" class="nav-item" data-view="settings" onclick="window.datingOSNav('settings'); return false;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+      <span>Settings</span>
+    </a>
+  </nav>
+
+  <script>
+    function showView(viewId) {
+      document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('view-active'); });
+      var view = document.getElementById('view-' + viewId);
+      if (view) view.classList.add('view-active');
+      document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+      var navItem = document.querySelector('[data-view="' + viewId + '"]');
+      if (navItem) navItem.classList.add('active');
+      document.body.classList.toggle('nav-hidden', viewId === 'conversation');
+      var backBtn = document.getElementById('btn-back');
+      if (backBtn) backBtn.style.display = viewId === 'conversation' ? 'flex' : 'none';
+    }
+    window.datingOSNav = showView;
+    window.datingOSBack = function() {
+      showView('dashboard');
+      var titleEl = document.querySelector('.header-title');
+      if (titleEl) { titleEl.textContent = 'DatingOS'; titleEl.href = '../index.html'; }
+    };
+    window.datingOSOpenChat = function(id) {
+      if (typeof id !== 'string') return;
+      showView('conversation');
+      if (window.datingOSRenderChat) window.datingOSRenderChat(id);
+    };
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
